@@ -18,14 +18,13 @@
 
 // 2
 let labels = document.querySelectorAll("label");
-labels.forEach(myFunction);
+labels.forEach(function (label) {
+  label.innerHTML = label.innerHTML
+    .split("")
+    .map((item, index) => {
+      return `<span style="transition-delay: ${index}ms">${item}</span>`;
+    })
+    .join("");
+});
 
-function myFunction(label) {
-    label.innerHTML = label.innerHTML.split("").map(mapF).join(""); 
-  }
-
-  function mapF(item, index) {
-    return `<span style="transition-delay: ${index}ms">${item}</span>`;
-  }
-
-  console.log(labels);
+console.log(labels);
